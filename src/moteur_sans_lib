@@ -1,0 +1,112 @@
+int MotorPin1= 8; // Déclaration broche commande Bobine 1 moteur
+int MotorPin2= 9; // Déclaration broche commande Bobine 2 moteur
+int MotorPin3= 10; // Déclaration broche commande Bobine 3 moteur
+int MotorPin4= 11; // Déclaration broche commande Bobine 4 moteur
+int Tour=0; // Déclaration variable pour gérer le nombre de tours du moteur
+int delayTime=10; // Vitesse d'ouverture et fermeture de la porte
+int commande_haut=4; // Bouton haut
+int commande_bas=5; // Bouton bas
+boolean etat_bp_h=false,etat_bp_b=false; // Déclaration des variables bas et haut
+boolean mem_h=false,mem_b=false; // Déclaration des mémoires haut et bas
+
+void setup() {
+Serial.begin(9600); // Ouverture du port série et debit de communication fixé à 9600 bauds
+pinMode(commande_haut, INPUT_PULLUP); // Inverse de la lecture sur entrée BP haut
+pinMode(commande_bas, INPUT_PULLUP); // Inverse de la lecture sur entrée BP bas
+pinMode(MotorPin1, OUTPUT); // Pin 8 de l'arduino en sortie digitale
+pinMode(MotorPin2, OUTPUT); // Pin 9 de l'arduino en sortie digitale
+pinMode(MotorPin3, OUTPUT); // Pin 10 de l'arduino en sortie digitale
+pinMode(MotorPin4, OUTPUT); // Pin 11 de l'arduino en sortie digitale
+}
+
+void loop() {
+etat_bp_h=!digitalRead(commande_haut); // Inverse de la lecture sur entrée BP haut
+etat_bp_b=!digitalRead(commande_bas); // Inverse de la lecture sur entrée BP bas
+
+if(etat_bp_h!=mem_h)// Changement d'état du bouton poussoir haut (front montant ou descendant)
+{
+if(etat_bp_h && !etat_bp_b) // Appui sur BP haut mais pas sur le bas
+{
+Fermer_porte(); // Lancer la fonction fermeture de la porte du poulailler
+}
+}
+mem_h=etat_bp_h; // Mémorisation du nouvel état du bouton haut
+if(etat_bp_b!=mem_b) // Changement d'état du bouton poussoir bas (front montant ou descendant)
+{
+if(etat_bp_b && !etat_bp_h) // Appui sur BP bas mais pas sur le haut
+{
+Ouvrir_porte(); // Lancer la fonction ouverture de la porte du poulailler
+}
+}
+mem_b=etat_bp_b; // Mémorisation du nouvel état du bouton bas
+}
+// Séquence d'alimentation normale des bobines du moteur en Full Step
+void Fermer_porte(){
+// Il faut 306 * 4 = 1224 pas pour fermer la porte
+for (Tour = 0; Tour < 306; Tour++){
+digitalWrite(MotorPin1,HIGH); // Alimentation A de la Bobine 1 du moteur pas à pas
+digitalWrite(MotorPin2,HIGH); // Alimentation B de la Bobine 2 du moteur pas à pas
+digitalWrite(MotorPin3,LOW); // Bobine 3 du moteur pas à pas au repos
+digitalWrite(MotorPin4,LOW); // Bobine 4 du moteur pas à pas au repos
+delay(delayTime);
+digitalWrite(MotorPin1,LOW); // Bobine 1 du moteur pas à pas au repos
+digitalWrite(MotorPin2,HIGH); // Alimentation B de la Bobine 2 du moteur pas à pas
+digitalWrite(MotorPin3,HIGH); // Alimentation C de la Bobine 3 du moteur pas à pas
+digitalWrite(MotorPin4,LOW); // Bobine 4 du moteur pas à pas au repos
+delay(delayTime);
+digitalWrite(MotorPin1,LOW); // Bobine 1 du moteur pas à pas au repos
+digitalWrite(MotorPin2,LOW); // Bobine 2 du moteur pas à pas au repos
+digitalWrite(MotorPin3,HIGH); // Alimentation C de la Bobine 3 du moteur pas à pas
+digitalWrite(MotorPin4,HIGH); // Alimentation D de la Bobine 4 du moteur pas à pas
+delay(delayTime);
+
+digitalWrite(MotorPin1,HIGH); // Alimentation A de la Bobine 1 du moteur pas à pas
+digitalWrite(MotorPin2,LOW); // Bobine 2 du moteur pas à pas au repos
+digitalWrite(MotorPin3,LOW); // Bobine 3 du moteur pas à pas au repos
+digitalWrite(MotorPin4,HIGH); // Alimentation D de la Bobine 4 du moteur pas à pas
+delay(delayTime);
+Serial.println("Fermer porte"); // Affichage sur le moniteur série
+}
+Serial.println("Porte Fermée"); // Affichage sur le moniteur série
+Arret();
+}
+// Séquence d'alimentation inverse des bobines du moteur en Full Step
+void Ouvrir_porte(){
+for (Tour = 0; Tour < 306; Tour++){
+// Il faut 306 * 4 = 1224 pas pour ouvrir la porte
+digitalWrite(MotorPin1,LOW); // Bobine 1 du moteur pas à pas au repos
+digitalWrite(MotorPin2,LOW); // Bobine 2 du moteur pas à pas au repos
+digitalWrite(MotorPin3,HIGH); // Alimentation C de la Bobine 3 du moteur pas à pas
+digitalWrite(MotorPin4,HIGH); // Alimentation D de la Bobine 4 du moteur pas à pas
+delay(delayTime);
+
+digitalWrite(MotorPin1,LOW); // Bobine 1 du moteur pas à pas au repos
+digitalWrite(MotorPin2,HIGH); // Alimentation B de la Bobine 2 du moteur pas à pas
+digitalWrite(MotorPin3,HIGH); // Alimentation C de la Bobine 3 du moteur pas à pas
+digitalWrite(MotorPin4,LOW); // Bobine 4 du moteur pas à pas au repos
+delay(delayTime);
+
+digitalWrite(MotorPin1,HIGH); // Alimentation A de la Bobine 1 du moteur pas à pas
+digitalWrite(MotorPin2,HIGH); // Alimentation B de la Bobine 2 du moteur pas à pas
+digitalWrite(MotorPin3,LOW); // Bobine 3 du moteur pas à pas au repos
+digitalWrite(MotorPin4,LOW); // Bobine 4 du moteur pas à pas au repos
+delay(delayTime);
+
+digitalWrite(MotorPin1,HIGH); // Alimentation A de la Bobine 1 du moteur pas à pas
+digitalWrite(MotorPin2,LOW); // Bobine 2 du moteur pas à pas au repos
+digitalWrite(MotorPin3,LOW); // Bobine 3 du moteur pas à pas au repos
+digitalWrite(MotorPin4,HIGH); // Alimentation D de la Bobine 4 du moteur pas à pas
+delay(delayTime);
+Serial.println("Ouvrir porte"); /// Affichage sur le moniteur série du texte
+}
+Serial.println("Porte Ouverte"); // Affichage sur le moniteur série
+Arret();
+}
+
+// Fonction arrêt du moteur
+void Arret(){
+digitalWrite(MotorPin1,LOW); // Bobine 1 du moteur pas à pas au repos
+digitalWrite(MotorPin2,LOW); // Bobine 2 du moteur pas à pas au repos
+digitalWrite(MotorPin3,LOW); // Bobine 3 du moteur pas à pas au repos
+digitalWrite(MotorPin4,LOW); // Bobine 4 du moteur pas à pas au repos
+}
