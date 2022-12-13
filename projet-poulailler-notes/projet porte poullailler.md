@@ -27,7 +27,9 @@ port A5 SCL
 testé  de faire bouger la porte avec un engrenage et une crémaillere :
 pas centré sa fait dévier la porte avant de la lever
 
-# calcul 
+update 13/12 la porte coulisse mal 
+
+## calcul 
 calcul du nombre de pas/nbtour nécéssaire pour ouvrir/fermer la porte
 1. mesure de la distance voulu
 2. mesure du rayon de l'engrenage
@@ -194,3 +196,12 @@ void loop() {
 
 
 ## à voir 
+
+sleep mode 
+ibrary low-power
+pour mettre en veille l'arduino = gain de batterie
+sortie de veille avec les alarme du module RTC et les interuption 
+
+# alimentation 
+le tout s'alimente en 5V
+pour voir avec des batterie 12V brancher un convertisseur 12V-5V LM7805
