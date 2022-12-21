@@ -31,11 +31,11 @@ void setup() {
   while (digitalRead(inputPin) == HIGH && limite > 0) {
     myStepper.step(-1);
     limite--;
-    delay(15);
+    delay(10);
   }
 
-  myStepper.setSpeed(5);
-  isOpen = true;
+  myStepper.setSpeed(10);
+  isOpen = false;
   motorOff();
 }
 
