@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="centre-moteur-dans-cercle-1cm.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2.3402952"
+     inkscape:cx="189.07871"
+     inkscape:cy="148.05824"
+     inkscape:window-width="1910"
+     inkscape:window-height="1032"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path221"
+       style="fill:none;stroke:#000000;stroke-width:0.0727194"
+       d="m 3.0308807,3.4395584 a 2.5637127,2.5636405 0 0 0 -0.558121,1.5968008 2.5637127,2.5636405 0 0 0 0.558121,1.5968018 h 4.01072 A 2.5637127,2.5636405 0 0 0 7.6002387,5.0363592 2.5637127,2.5636405 0 0 0 7.0421177,3.4395584 Z M 10.03664,5.0363592 A 5.0001403,4.9999995 0 0 1 5.0364997,10.036359 5.0001403,4.9999995 0 0 1 0.0363597,5.0363592 5.0001403,4.9999995 0 0 1 5.0364997,0.03635971 5.0001403,4.9999995 0 0 1 10.03664,5.0363592 Z" />
+  </g>
+</svg>
