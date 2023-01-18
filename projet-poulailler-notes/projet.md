@@ -14,7 +14,8 @@ pour la communication avec le module RTC
 port A4 SDA  
 port A5 SCL
 
-c'est possible d'alimenter le circuit directement sur le VCC de l'arduino entre 7 et 12 V, et d'utiliser le +5V pour alimenter le reste du circuit MAIS ça dépend des modeles et j'ai pas de certitude pour le nano j'ai vu du max 800mA et d'autre qui dissent 100mA, le moteur pompe dans les 300mA, et comme j'en ai déja grillé un, je prend pas de risque
+c'est possible d'alimenter le circuit directement sur le VCC de l'arduino entre 7 et 12 V, et d'utiliser le +5V pour alimenter le reste du circuit MAIS ça dépend des modeles et j'ai pas de certitude pour le nano j'ai vu du max 800mA et d'autre qui dissent 100mA,est ce que ça concerce bien le pin 5V aussi,
+le moteur pompe dans les 300mA, et comme j'en ai déja grillé un, je prend pas de risque
 # différents type de portes
 
 [diff type de porte](obsidian://open?vault=projet-poulailler-notes&file=les%20diff%C3%A9rents%20types%20de%20portes)
