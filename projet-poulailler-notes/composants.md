@@ -12,10 +12,11 @@ ULN2003
 ## capteur de fin de course 
 
 ## module RTC 
-RTC DS3221
-RTC I2C DS1307 => moins cher
+RTC DS3231
 
 ## baterie 
 a voir
 comment alimenter le tout ? 
-alim 12V use LM7805 pour ramener à 5V
+
+## LM7805
+convertisseur alim 12V pour ramener à 5V
