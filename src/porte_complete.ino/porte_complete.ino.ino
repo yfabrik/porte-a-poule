@@ -1,27 +1,32 @@
 #include <RTClib.h>
 #include <Dusk2Dawn.h>
 #include <LowPower.h>
-
 #include <Stepper.h>
-#define motorPin1 8   // IN1 on the ULN2003 driver
-#define motorPin2 9   // IN2 on the ULN2003 driver
-#define motorPin3 10  // IN3 on the ULN2003 driver
-#define motorPin4 11  // IN4 on the ULN2003 driver
 
-#define STEPS_TOUR 2038  //le nombre d'etape pour faire 1 tour  le moteur en full-step mode fait 2048 en half step mode 4096
-Stepper myStepper(STEPS_TOUR, motorPin1, motorPin3, motorPin2, motorPin4);
-float nb_tours = 2.5;
-int limite = nb_tours * STEPS_TOUR;
+////////editable//////////////
+//gps
+Dusk2Dawn geneve(46.1200, 6.0900, 300);
+
+//pin butté
 #define inputPin 4
 
-RTC_DS3231 rtc;
-Dusk2Dawn geneve(46.1200, 6.0900, 300);
-bool isOpen = false;
+//l'etat de la porte quand homing
+bool isOpen = true;
 
-int statepin1;
-int statepin2;
-int statepin3;
-int statepin4;
+//motor
+#define motorPin1 8
+#define motorPin2 9
+#define motorPin3 10
+#define motorPin4 11
+float nb_tours = 2.5;
+
+#define STEPS_TOUR 2038  //le nombre d'etape pour faire 1 tour  le moteur en full-step mode fait 2048 en half step mode 4096
+///////////////////////////////
+
+Stepper myStepper(STEPS_TOUR, motorPin1, motorPin3, motorPin2, motorPin4);
+int limite = nb_tours * STEPS_TOUR;
+// module de temps
+RTC_DS3231 rtc;
 
 void setup() {
   //control time
@@ -33,9 +38,8 @@ void setup() {
     limite--;
     delay(5);
   }
-
   myStepper.setSpeed(10);
-  isOpen = true;
+
   motorOff();
 }
 
@@ -46,12 +50,10 @@ void loop() {
   int minToday = now.hour() * 60 + now.minute();
 
   if (minToday > matin && minToday < soir && isOpen == false) {
-    motorOn();
     myStepper.step(nb_tours * STEPS_TOUR);
     isOpen = !isOpen;
     motorOff();
   } else if ((minToday > soir || minToday < matin) && isOpen) {
-    motorOn();
     myStepper.step(nb_tours * STEPS_TOUR * -1);
     isOpen = !isOpen;
     motorOff();
@@ -69,7 +71,7 @@ void pause(int minutes) {
   if (minutes <= 0)
     minutes = 1;
 
-//minute pair divisé par 8 reste 0, minutes impair reste 4
+  //minute pair divisé par 8 reste 0, minutes impair reste 4
   int surplus = minutes % 2;
   int cycles = minutes * 60 / 8;
   for (int i = 0; i < cycles; i++) {
@@ -80,24 +82,12 @@ void pause(int minutes) {
   }
 }
 
-//mettre en veille le moteur pour eco batterie 
+//mettre en veille le moteur pour eco batterie
 //moteur allumé = 300mA
 //moteur éteint = 20mA
 void motorOff() {
-  statepin1 = digitalRead(motorPin1);
-  statepin2 = digitalRead(motorPin2);
-  statepin3 = digitalRead(motorPin3);
-  statepin4 = digitalRead(motorPin4);
-
   digitalWrite(motorPin1, LOW);
   digitalWrite(motorPin2, LOW);
   digitalWrite(motorPin3, LOW);
   digitalWrite(motorPin4, LOW);
-}
-void motorOn() {
-  digitalWrite(motorPin1, statepin1);
-  digitalWrite(motorPin2, statepin2);
-  digitalWrite(motorPin3, statepin3);
-  digitalWrite(motorPin4, statepin4);
-  delay(10);
 }
