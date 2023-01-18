@@ -10,13 +10,15 @@
           {
             "id": "d1c03ae0688e9d75",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2023-01-04.md",
-                "mode": "source",
+                "file": "projet.md",
+                "mode": "preview",
                 "source": false
-              }
+              },
+              "pinned": true
             }
           }
         ]
@@ -85,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2023-01-04.md",
+                "file": "projet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2023-01-04.md",
+                "file": "projet.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2023-01-04.md"
+                "file": "projet.md"
               }
             }
           }
@@ -148,15 +150,15 @@
   },
   "active": "d1c03ae0688e9d75",
   "lastOpenFiles": [
+    "Untitled.canvas",
+    "projet.md",
+    "les différents types de portes.md",
     "2023-01-11.md",
     "2023-01-18.md",
-    "arduino_bb.png",
-    "code.md",
-    "composants.md",
-    "projet porte poullailler.md",
-    "pinOutput.md",
-    "les différents types de portes.md",
-    "2022-11-30.md",
-    "2022-11-29.md"
+    "2023-01-04.md",
+    "2022-12-20.md",
+    "2022-12-21.md",
+    "2022-12-13.md",
+    "code.md"
   ]
 }

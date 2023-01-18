@@ -1,4 +1,3 @@
-  myStepper.setSpeed(10);
 arret du moteur pour éco 
 moteur allumé 300 mA
 éteint 20mA

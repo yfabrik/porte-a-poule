@@ -8,12 +8,14 @@ rajout dans setup():
   pinMode(inputPin, INPUT_PULLUP);
   while (digitalRead(inputPin) == HIGH) {
     myStepper.step(-1);
-    delay(30);
+    delay(10);
   }
 ```
-le moteur a besoin d'avoir une pause entre chaque étape sinon il a pas le temps de se déplacer
+le moteur a besoin d'avoir une pause entre chaque étape sinon il n'a pas le temps de se déplacer
+
 
 le INPUT_PULLUP permet d'activer la résistance interne du pin pour éviter les parasite, sinon faudrait rajouter une resistance dans le montage
+[détail](obsidian://open?vault=projet-poulailler-notes&file=pinOutput)
 
 ```c++
 #include <Stepper.h>
