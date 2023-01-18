@@ -25,6 +25,7 @@ float nb_tours = 2.5;
 
 Stepper myStepper(STEPS_TOUR, motorPin1, motorPin3, motorPin2, motorPin4);
 int limite = nb_tours * STEPS_TOUR;
+int step_todo = nb_tours * STEPS_TOUR;
 // module de temps
 RTC_DS3231 rtc;
 
@@ -50,11 +51,11 @@ void loop() {
   int minToday = now.hour() * 60 + now.minute();
 
   if (minToday > matin && minToday < soir && isOpen == false) {
-    myStepper.step(nb_tours * STEPS_TOUR);
+    myStepper.step(step_todo);
     isOpen = !isOpen;
     motorOff();
   } else if ((minToday > soir || minToday < matin) && isOpen) {
-    myStepper.step(nb_tours * STEPS_TOUR * -1);
+    myStepper.step(step_todo * -1);
     isOpen = !isOpen;
     motorOff();
   }
