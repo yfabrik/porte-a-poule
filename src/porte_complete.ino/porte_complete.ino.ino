@@ -5,7 +5,7 @@
 
 ////////editable//////////////
 //gps
-Dusk2Dawn geneve(46.1200, 6.0900, 300);
+Dusk2Dawn geneve(46.1200, 6.0900, 1);
 
 //pin butté
 #define inputPin 4
@@ -60,12 +60,12 @@ void loop() {
     motorOff();
   }
 
-  if (minToday < matin)
-    pause((matin - minToday));
-  else if (minToday < soir)
-    pause((soir - minToday));
-  else
-    pause((24 * 60 - minToday));
+  // if (minToday < matin)
+  //   pause((matin - minToday));
+  // else if (minToday < soir)
+  //   pause((soir - minToday));
+  // else
+  //   pause((24 * 60 - minToday));
 }
 
 void pause(int minutes) {

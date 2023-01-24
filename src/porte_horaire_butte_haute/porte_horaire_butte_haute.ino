@@ -15,7 +15,7 @@ int limite = nb_tours * STEPS_TOUR;
 #define inputPin 4
 
 DS3231 rtc;
-Dusk2Dawn geneve(46.1200, 6.0900, 300);
+Dusk2Dawn geneve(46.1200, 6.0900, 1);
 bool isOpen = false;
 
 void setup() {
