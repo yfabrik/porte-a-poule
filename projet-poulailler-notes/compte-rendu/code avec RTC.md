@@ -4,13 +4,18 @@ utilisation de la date couplé avec une library qui permet d'obtenir l'aube et l
 
 #### lib dusk2dawn 
 dusk2dawn permet d'obtenir l'heure du lever et coucher du soleil
-la library Dusk2Dawn doit etre modifié : 
+si jamais y'a une erreur lors de la compilation, la library Dusk2Dawn doit etre modifié (d'apres ce que j'ai lu ça dependrai de la version de l'ide utilisé ou sur quelle plateforme c'est utilisé) : 
 ```c++
 //changer dans Dusk2Dawn.cpp et Dusk2Dawn.h
 #include<Math.h>
 //en
 #include<math.h>
 ```
+```c++
+//latitude longitude timezone (GMT+1 ici)
+Dusk2Dawn geneve(46.1200, 6.0900, 1);
+```
+
 ### mise a l'heure du module RTC
 
 ```c++
@@ -57,7 +62,7 @@ int limite = nb_tours * STEPS_TOUR;
 #define inputPin 4
 
 DS3231 rtc;
-Dusk2Dawn geneve(46.1200, 6.0900, 300);
+Dusk2Dawn geneve(46.1200, 6.0900, 1);
 bool isOpen = false;
 
 void setup() {

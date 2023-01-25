@@ -2,7 +2,7 @@
 ## materieaux
 faut éviter les matériaux qui se déforme avec l'humidité  ou la température
 faut pas que ça soit tros lourd aussi
-on avait pensé au plexiglas mais la transparence sa va peut etre perturber les poules
+ - plexiglas mais la transparence sa va peut etre perturber les poules
  - bois pas possible
  - dibon
  - plaque métal ? tros lourd ?

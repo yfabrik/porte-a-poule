@@ -19,7 +19,7 @@ le moteur pompe dans les 300mA, et comme j'en ai déja grillé un, je prend pas 
 # différents type de portes
 
 [diff type de porte](obsidian://open?vault=projet-poulailler-notes&file=les%20diff%C3%A9rents%20types%20de%20portes)
-
+![[les différents types de portes]]
 # contraintes
 la cremaillere ça va pas, le jeu entre la porte et le chambranle fait que ça fait dabord pencher la porte 
 peut etre que si c'est centré ça le fera pas
@@ -28,7 +28,7 @@ library low power ne marche pas sur tous les arduino ni ne marche de la meme fa�
 
 les piles clasique on oublie: on v'a en consommer des tonne et ça va pas tenir
 # composants
-[composants](obsidian://open?vault=projet-poulailler-notes&file=composants)
+[composants](obsidian://open?vault=projet-poulailler-notes&file=composants)![[composants]]
 # alimentation
 circuit doit etre alimenté en 5V, le convertisseur  LM7805 permet d'alimenter jusqu'en 12V
 j'ai test la lib low power : franchement c'est pas flagrant
@@ -44,11 +44,15 @@ avec low power 10mA
  <Stepper.h> controle du moteur
 ## porte de base
 [code](obsidian://open?vault=projet-poulailler-notes&file=compte-rendu%2Fcode%20simple)
+![[code simple]]
 ## homing
 [code](obsidian://open?vault=projet-poulailler-notes&file=compte-rendu%2Fcode%20avec%20butt%C3%A9)
+![[code avec butté]]
 ## module de temps
 [code](obsidian://open?vault=projet-poulailler-notes&file=compte-rendu%2Fcode%20avec%20RTC)
+![[code avec RTC]]
 ## économie d'energie
 [code](obsidian://open?vault=projet-poulailler-notes&file=compte-rendu%2Fcode%20%C3%A9co%20batterie)
+![[code éco batterie]]
 
 
