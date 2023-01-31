@@ -78,7 +78,7 @@ void pause(int minutes) {
   for (int i = 0; i < cycles; i++) {
     LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
   }
-  if (surplus == 0) {
+  if (surplus != 0) {
     LowPower.powerDown(SLEEP_4S, ADC_OFF, BOD_OFF);
   }
 }
