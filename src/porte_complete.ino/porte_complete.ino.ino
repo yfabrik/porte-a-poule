@@ -5,7 +5,10 @@
 
 ////////editable//////////////
 //gps + timezone
-Dusk2Dawn geneve(46.1200, 6.0900, 1);
+Dusk2Dawn geneve(46.1200, 6.0900, 0);
+
+int offset_matin = 0;
+int offset_soir = 0;
 
 //pin butté
 #define inputPin 4
@@ -46,8 +49,8 @@ void setup() {
 
 void loop() {
   DateTime now = rtc.now();
-  int matin = geneve.sunrise(now.year(), now.month(), now.day(), false);
-  int soir = geneve.sunset(now.year(), now.month(), now.day(), false);
+  int matin = geneve.sunrise(now.year(), now.month(), now.day(), false) + offset_matin;
+  int soir = geneve.sunset(now.year(), now.month(), now.day(), false) + offset_soir;
   int minToday = now.hour() * 60 + now.minute();
 
   if (minToday > matin && minToday < soir && isOpen == false) {
