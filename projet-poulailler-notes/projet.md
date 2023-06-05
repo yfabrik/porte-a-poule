@@ -54,5 +54,6 @@ avec low power 10mA
 ## économie d'energie
 [code](obsidian://open?vault=projet-poulailler-notes&file=compte-rendu%2Fcode%20%C3%A9co%20batterie)
 ![[code éco batterie]]
-
+# installation 
+![[installation]]
 

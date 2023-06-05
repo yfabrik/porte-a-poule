@@ -27,14 +27,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2022-11-23.md",
+                "file": "2023-02-14.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ea7ab7b66cdb0b49",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "installation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5169ac21847f7b62",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2023-03-21.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -100,7 +124,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2022-11-23.md",
+                "file": "2023-03-21.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +141,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2022-11-23.md",
+                "file": "2023-03-21.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,7 +164,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2022-11-23.md"
+                "file": "2023-03-21.md"
               }
             }
           }
@@ -161,17 +185,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e9052260eb80826d",
+  "active": "5169ac21847f7b62",
   "lastOpenFiles": [
-    "les différents types de portes.md",
-    "composants.md",
-    "code.md",
-    "arduino_bb.png",
-    "2023-01-25.md",
-    "2023-01-18.md",
-    "projet.md",
-    "compte-rendu/code éco batterie.md",
+    "2023-02-21.md",
+    "2023-03-21.md",
+    "2023-02-15.md",
+    "recharche panneau solaire.md",
+    "th-3938367345.jpg",
+    "TP4056A-Pinout-Diagram-linear-lithium-ion-battery-charging-module.jpg",
+    "2023-01-31.md",
+    "2023-02-08.md",
+    "2023-02-14.md",
     "compte-rendu/code avec RTC.md",
-    "compte-rendu/code simple.md"
+    "installation.md",
+    "projet.md"
   ]
 }

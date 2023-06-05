@@ -5,7 +5,7 @@
 
 ////////editable//////////////
 //gps + timezone
-Dusk2Dawn geneve(46.1200, 6.0900, 0);
+Dusk2Dawn geneve(46.1200, 6.0900, 1);
 
 int offset_matin = 0;
 int offset_soir = 0;
@@ -33,6 +33,7 @@ int step_todo = nb_tours * STEPS_TOUR;
 RTC_DS3231 rtc;
 
 void setup() {
+  Serial.begin(9600);
   //control time
   rtc.begin();
   //reset / homing
@@ -52,6 +53,7 @@ void loop() {
   int matin = geneve.sunrise(now.year(), now.month(), now.day(), false) + offset_matin;
   int soir = geneve.sunset(now.year(), now.month(), now.day(), false) + offset_soir;
   int minToday = now.hour() * 60 + now.minute();
+  delay(10);
 
   if (minToday > matin && minToday < soir && isOpen == false) {
     myStepper.step(step_todo);
@@ -62,28 +64,22 @@ void loop() {
     isOpen = !isOpen;
     motorOff();
   }
+  delay(60000);
+  
 
-  if (minToday < matin)
-    pause((matin - minToday));
-  else if (minToday < soir)
-    pause((soir - minToday));
-  else
-    pause((24 * 60 - minToday));
+  // if (minToday < matin)
+  //   pause((matin - minToday));
+  // else if (minToday < soir)
+  //   pause((soir - minToday));
+  // else
+  //   pause((24 * 60 - minToday));
 }
 
 void pause(int minutes) {
   if (minutes <= 0)
     minutes = 1;
 
-  //minute pair divisé par 8 reste 0, minutes impair reste 4
-  int surplus = minutes % 2;
-  int cycles = minutes * 60 / 8;
-  for (int i = 0; i < cycles; i++) {
-    LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
-  }
-  if (surplus != 0) {
-    LowPower.powerDown(SLEEP_4S, ADC_OFF, BOD_OFF);
-  }
+  delay(minutes * 60000);
 }
 
 //mettre en veille le moteur pour eco batterie

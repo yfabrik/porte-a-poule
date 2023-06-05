@@ -35,6 +35,21 @@ Clock.setMonth(11);
 Clock.setYear(22); 
 }
 ```
+ou
+```c++
+#include <RTClib.h>
+RTC_DS3231 rtc;
+void setup() {
+rtc.begin();
+Serial.begin(9600);
+rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+DateTime now = rtc.now();
+Serial.print(now.year());
+Serial.print(now.month());
+Serial.print(now.day());
+Serial.print(now.hour());
+Serial.print(now.minute());
+```
 
 le `Clock.setDoW(1);` set day of week est arbitraire
 valeur comprise entre 1 et 7
